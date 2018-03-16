@@ -13,31 +13,17 @@ def buildbracemap(code):
   return bracemap
 
 def run(filename):
-<<<<<<< HEAD
   code = []
   with open(filename, 'r') as f:
     for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', re.sub('\n', '', f.read()))):
       code.append(each_char)
   print(code)
-=======
-        code = []
-        with open(filename, 'r') as f:
-                for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', re.sub('\n', '', f.read()))):
-                        code.append(each_char)
-                print(code)
->>>>>>> master
         
   bracemap = buildbracemap(''.join(code))
-        
-<<<<<<< HEAD
+  
   cells = [0 for i in range(25)] #you can up this value
   codeptr = 0
   cellptr = 0
-=======
-        cells = [0 for i in range(9999)] #you can up this value
-        codeptr = 0
-        cellptr = 0
->>>>>>> master
         
   while codeptr < len(code):
     command = code[codeptr]
