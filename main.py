@@ -21,7 +21,7 @@ def run(filename):
         
         bracemap = buildbracemap(''.join(code))
         
-        cells = [0 for i in range(25)] #you can up this value
+        cells = [0 for i in range(9999)] #you can up this value
         codeptr = 0
         cellptr = 0
         
