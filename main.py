@@ -3,7 +3,7 @@ import sys, re
 #https://github.com/pocmo/Python-Brainfuck/blob/master/brainfuck.py#L51
 def buildbracemap(code): 
   temp_bracestack, bracemap = [], {}
-  
+
   for position, command in enumerate(code):
     if command == "[": temp_bracestack.append(position)
     if command == "]":
@@ -18,13 +18,13 @@ def run(filename):
     for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', re.sub('\n', '', f.read()))):
       code.append(each_char)
   print(code)
-        
+
   bracemap = buildbracemap(''.join(code))
-  
+
   cells = [0 for i in range(25)] #you can up this value
   codeptr = 0
   cellptr = 0
-        
+
   while codeptr < len(code):
     command = code[codeptr]
 
