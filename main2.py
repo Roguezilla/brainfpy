@@ -1,37 +1,37 @@
 import sys, re
-def buildbracemap(code): 
-  temp_bracestack, bracemap = [], {}
-  for position, command in enumerate(code):
-    if command == "[": temp_bracestack.append(position)
-    if command == "]":
-      start = temp_bracestack.pop()
-      bracemap[start] = position
-      bracemap[position] = start
-  return bracemap
-def run(filename):
-  code = []
-  with open(filename, 'r') as f:
-    for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', re.sub('\n', '', f.read()))):
-      code.append(each_char)
-  bracemap = buildbracemap(''.join(code))
-  cells, codeptr, cellptr = [0 for i in range(9999)], 0, 0
-  while codeptr < len(code):
-    command = code[codeptr]
-    if command == '>':
-      cellptr += 1
-    elif command == '<':
-      cellptr -= 1
-    elif command == '+':
-      cells[cellptr] = cells[cellptr] + 1
-    elif command == '-':
-      cells[cellptr] = cells[cellptr] - 1
-    elif command == '.':
-      sys.stdout.write(chr(cells[cellptr]))
-    elif command == ',':
-      cells[cellptr] = ord(sys.stdin.read(1))
-    elif command == '[' and cells[cellptr] == 0:
-      codeptr = bracemap[codeptr]
-    elif command == ']' and cells[cellptr] != 0:
-      codeptr = bracemap[codeptr]
-    codeptr += 1
-run(sys.argv[1])
+def B(c): 
+  _, b = [], {}
+  for p, i in enumerate(c):
+    if i == "[": _.append(p)
+    if i == "]":
+      s = _.pop()
+      b[s] = p
+      b[p] = s
+  return b
+def r(F):
+  C = []
+  with open(F, 'r') as f:
+    for e in ''.join(filter(lambda x: x in '.,[]<>+-', re.sub('\n', '', f.read()))):
+      C.append(e)
+  b = B(''.join(C))
+  c, p, q = [0 for i in range(9999)], 0, 0
+  while p < len(C):
+    g = C[p]
+    if g == '>':
+      q += 1
+    elif g == '<':
+      q -= 1
+    elif g == '+':
+      c[q]+=1
+    elif g == '-':
+      c[q]-=1
+    elif g == '.':
+      sys.stdout.write(chr(c[q]))
+    elif g == ',':
+      c[cellptr] = ord(sys.stdin.read(1))
+    elif g == '[' and c[q] == 0:
+      p = b[p]
+    elif g == ']' and c[q] != 0:
+      p = b[p]
+    p += 1
+r(sys.argv[1])
