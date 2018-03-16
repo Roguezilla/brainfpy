@@ -14,7 +14,7 @@ def buildbracemap(code):
 def run(filename):
         code = []
         with open(filename, 'r') as f:
-                for each_char in ''.join(filter(lambda x: x in ['.', ',', '[', ']', '<', '>', '+', '-'], re.sub('\n', '', f.read()))):
+                for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', re.sub('\n', '', f.read()))):
                         code.append(each_char)
         
         bracemap = buildbracemap(''.join(code))
