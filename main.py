@@ -3,7 +3,7 @@ import sys, re
 #https://github.com/pocmo/Python-Brainfuck/blob/master/brainfuck.py#L51
 def buildbracemap(code): 
   temp_bracestack, bracemap = [], {}
-
+  
   for position, command in enumerate(code):
     if command == "[": temp_bracestack.append(position)
     if command == "]":
@@ -13,42 +13,56 @@ def buildbracemap(code):
   return bracemap
 
 def run(filename):
+<<<<<<< HEAD
+  code = []
+  with open(filename, 'r') as f:
+    for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', re.sub('\n', '', f.read()))):
+      code.append(each_char)
+  print(code)
+=======
         code = []
         with open(filename, 'r') as f:
                 for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', re.sub('\n', '', f.read()))):
                         code.append(each_char)
                 print(code)
+>>>>>>> master
         
-        bracemap = buildbracemap(''.join(code))
+  bracemap = buildbracemap(''.join(code))
         
+<<<<<<< HEAD
+  cells = [0 for i in range(25)] #you can up this value
+  codeptr = 0
+  cellptr = 0
+=======
         cells = [0 for i in range(9999)] #you can up this value
         codeptr = 0
         cellptr = 0
+>>>>>>> master
         
-        while codeptr < len(code):
-                command = code[codeptr]
+  while codeptr < len(code):
+    command = code[codeptr]
 
-                if command == '>':
-                        cellptr += 1
-                elif command == '<':
-                        cellptr -= 1
-                elif command == '+':
-                        cells[cellptr] = cells[cellptr] + 1
-                elif command == '-':
-                        cells[cellptr] = cells[cellptr] - 1
-                elif command == '.':
-                        sys.stdout.write(chr(cells[cellptr]))
-                elif command == ',':
-                        cells[cellptr] = ord(sys.stdin.read(1))
-                elif command == '[' and cells[cellptr] == 0:
-                        codeptr = bracemap[codeptr]
-                elif command == ']' and cells[cellptr] != 0:
-                        codeptr = bracemap[codeptr]
+    if command == '>':
+      cellptr += 1
+    elif command == '<':
+      cellptr -= 1
+    elif command == '+':
+      cells[cellptr] = cells[cellptr] + 1
+    elif command == '-':
+      cells[cellptr] = cells[cellptr] - 1
+    elif command == '.':
+      sys.stdout.write(chr(cells[cellptr]))
+    elif command == ',':
+      cells[cellptr] = ord(sys.stdin.read(1))
+    elif command == '[' and cells[cellptr] == 0:
+      codeptr = bracemap[codeptr]
+    elif command == ']' and cells[cellptr] != 0:
+      codeptr = bracemap[codeptr]
 
-                codeptr += 1
+    codeptr += 1
 
-        print('\n{}'.format(cells))
-        print('Current cell #{} holds {}'.format(cellptr, cells[cellptr]))
+  print('\n{}'.format(cells))
+  print('Current cell #{} holds {}'.format(cellptr, cells[cellptr]))
 
 if __name__ == '__main__':
-        run(sys.argv[1])
+  run(sys.argv[1])
