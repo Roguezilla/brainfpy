@@ -7,7 +7,7 @@ complete.py -> the fancy interpreter
 ```
 python main.py filename
 ```
-Example with the included file.  
+Example with the included file:  
 Input:
 ```
 python main.py hello_world.bf
@@ -20,7 +20,7 @@ Hello World!
 ```
 python complete.py filename cell_number debug_info
 ```
-Example with the included file.  
+Example with the included file:  
 (If you don't want debug info, type something else instead of 'debug'.)  
 Input:
 ```
