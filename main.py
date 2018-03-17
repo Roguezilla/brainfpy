@@ -1,6 +1,6 @@
 import sys,re
 a,c,d,e,f,g,h=[],[],{},0,0,[0 for i in range(999)],sys
-for z in ''.join(filter(lambda x:x in'.,[]<>+-',re.sub('\n','',open(h.argv[1],'r').read()))):a.append(z)
+for z in ''.join(filter(lambda x:x in'.,[]<>+-',open(h.argv[1],'r').read())):a.append(z)
 for p,m in enumerate(''.join(a)):
   if m=='[':c.append(p)
   if m==']':s=c.pop();d[s]=p;d[p]=s
