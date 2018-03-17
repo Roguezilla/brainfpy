@@ -14,4 +14,4 @@ Y.':h.stdout.write(chr(K))
 Y,':K=ord(h.stdin.read(1))
 Y[' and K==0:e=d[e]
 Y]' and K!=0:e=d[e]
-  e+=1""".replace('Y',"  if m=='").replace('K','g[f]'))
+  e+=1""".replace('Y',"  if m=='").replace('K','g[f]')
