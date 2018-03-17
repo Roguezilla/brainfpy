@@ -21,7 +21,7 @@ def interpret(filename, cell_num, debug):
     code_map = []
 
     with open(filename, 'r') as f:
-        for each_operation in ''.join(filter(lambda x: x in '.,[]<>+-', re.sub('\n', '', f.read()))):
+        for each_operation in ''.join(filter(lambda x: x in '.,[]<>+-', f.read())):
             code_map.append(each_operation)
 
     brace_map = build_brace_map(''.join(code_map))
