@@ -7,9 +7,14 @@ complete.py -> the fancy interpreter
 ```
 python main.py filename
 ```
-Example with the included file.
+Example with the included file.  
+Input:
 ```
 python main.py hello_world.bf
+```
+Output:
+```
+Hello World!
 ```
 # Usage of complete.py
 ```
