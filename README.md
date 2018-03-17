@@ -15,8 +15,8 @@ python main.py hello_world.bf
 ```
 python complete.py filename cell_number debug_info
 ```
-Example with the included file.
-(If you don't want debug info, type something else instead of 'debug'.)
+Example with the included file.  
+(If you don't want debug info, type something else instead of 'debug'.)  
 Input:
 ```
 python complete.py hello_world.bf 25 debug
