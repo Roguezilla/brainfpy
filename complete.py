@@ -17,11 +17,10 @@ def run(filename):
   with open(filename, 'r') as f:
     for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', re.sub('\n', '', f.read()))):
       code.append(each_char)
-  print(code)
 
   bracemap = buildbracemap(''.join(code))
 
-  cells = [0 for i in range(25)] #you can up this value
+  cells = [0 for i in range(999)]
   codeptr = 0
   cellptr = 0
 
@@ -46,9 +45,6 @@ def run(filename):
       codeptr = bracemap[codeptr]
 
     codeptr += 1
-
-  print('\n{}'.format(cells))
-  print('Current cell #{} holds {}'.format(cellptr, cells[cellptr]))
 
 if __name__ == '__main__':
   run(sys.argv[1])
