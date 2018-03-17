@@ -1,7 +1,7 @@
 # Brainfuck Interpreter
 An interpreter for Brainfuck written in Python.
 # Info
-main.py -> the lightweight interpreter (487 bytes)  
+main.py -> the lightweight interpreter (490 bytes)  
 complete.py -> the fancy interpreter (1528 bytes)
 # Usage
 ```
