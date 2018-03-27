@@ -29,8 +29,8 @@ code_to_interpret = Text(root, height=20, borderwidth=2, relief='groove')
 code_to_interpret.grid(row=1, column=1)
 
 Label(root, text="Input").grid(row=2, column=0)
-uinput = Text(root, height=1, borderwidth=2, relief='groove')
-uinput.grid(row=2, column=1)
+code = Text(root, height=1, borderwidth=2, relief='groove')
+code.grid(row=2, column=1)
 
 Label(root, text="Output").grid(row=5, column=0)
 output = Text(root, height=5, borderwidth=2, relief='groove')
@@ -71,7 +71,7 @@ def interpret():
             output.insert(END, chr(cell_map[cell_ptr]))
 
         elif command == ',':
-            cell_map[cell_ptr] = ord(uinput.get(1.0, END)[i_wasted_3_hours_on_a_solution_for_input_when_it_was_this_simple])
+            cell_map[cell_ptr] = ord(code.get(1.0, END)[i_wasted_3_hours_on_a_solution_for_input_when_it_was_this_simple])
 
         elif command == '[' and cell_map[cell_ptr] == 0:
             operation_ptr = brace_map[operation_ptr]
