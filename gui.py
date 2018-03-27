@@ -81,7 +81,6 @@ def interpret():
 
         if i_wasted_3_hours_on_a_solution_for_input_when_it_was_this_simple < 1:
             i_wasted_3_hours_on_a_solution_for_input_when_it_was_this_simple += 1
-            print(i_wasted_3_hours_on_a_solution_for_input_when_it_was_this_simple)
 
         operation_ptr += 1
 
