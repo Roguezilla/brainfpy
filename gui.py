@@ -1,8 +1,3 @@
-import sys
-import os
-import time
-import re
-import platform
 from tkinter import *
 
 #https://github.com/pocmo/Python-Brainfuck/blob/master/brainfuck.py#L51
