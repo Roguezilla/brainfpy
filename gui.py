@@ -43,8 +43,10 @@ def interpret():
         code_map.append(each_operation)
 
     brace_map = build_brace_map(''.join(code_map))
-
-    cell_map, operation_ptr, cell_ptr, i_wasted_3_hours_on_a_solution_for_input_when_it_was_this_simple = [0 for i in range(100)], 0, 0, 0
+    cell_map = [0 for i in range(30000)]
+    operation_ptr = 0
+    cell_ptr = 0
+    input_ptr = 0
 
     while operation_ptr < len(code_map):
         command = code_map[operation_ptr]
@@ -71,7 +73,7 @@ def interpret():
             output.insert(END, chr(cell_map[cell_ptr]))
 
         elif command == ',':
-            cell_map[cell_ptr] = ord(code.get(1.0, END)[i_wasted_3_hours_on_a_solution_for_input_when_it_was_this_simple])
+            cell_map[cell_ptr] = ord(code.get(1.0, END)[input_ptr])
 
         elif command == '[' and cell_map[cell_ptr] == 0:
             operation_ptr = brace_map[operation_ptr]
@@ -79,8 +81,8 @@ def interpret():
         elif command == ']' and cell_map[cell_ptr] != 0:
             operation_ptr = brace_map[operation_ptr]
 
-        if i_wasted_3_hours_on_a_solution_for_input_when_it_was_this_simple < 1:
-            i_wasted_3_hours_on_a_solution_for_input_when_it_was_this_simple += 1
+        if input_ptr < 1:
+            input_ptr += 1
 
         operation_ptr += 1
 
