@@ -42,6 +42,11 @@ def interpret():
     operation_ptr = 0
     cell_ptr = 0
     input_ptr = 0
+    comma_count = 0
+
+    for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', str(code_to_interpret.get(1.0, END)))):
+        if each_char == ',':
+            comma_count += 1
 
     while operation_ptr < len(code_map):
         command = code_map[operation_ptr]
@@ -76,7 +81,7 @@ def interpret():
         elif command == ']' and cell_map[cell_ptr] != 0:
             operation_ptr = brace_map[operation_ptr]
 
-        if input_ptr < 1:
+        if input_ptr < comma_count - 1:
             input_ptr += 1
 
         operation_ptr += 1
