@@ -4,6 +4,7 @@ An interpreter for Brainfuck written in Python.
 main.py -> the lightweight interpreter (495 bytes)  
 complete.py -> the fancy interpreter  
 gui.py -> an UI for the interpreter  
+# Usage of gui.py
 Example:  
 ![Alt text](https://i.imgur.com/DZc2B8V.png)  
 How input works:  
