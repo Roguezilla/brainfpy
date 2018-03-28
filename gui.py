@@ -24,8 +24,8 @@ code_to_interpret = Text(root, height=20, borderwidth=2, relief='groove')
 code_to_interpret.grid(row=1, column=1)
 
 Label(root, text="Input").grid(row=2, column=0)
-code = Text(root, height=1, borderwidth=2, relief='groove')
-code.grid(row=2, column=1)
+uinput = Text(root, height=1, borderwidth=2, relief='groove')
+uinput.grid(row=2, column=1)
 
 Label(root, text="Output").grid(row=5, column=0)
 output = Text(root, height=5, borderwidth=2, relief='groove')
@@ -38,11 +38,12 @@ def interpret():
         code_map.append(each_operation)
 
     brace_map = build_brace_map(''.join(code_map))
-    cell_map = [0 for i in range(30000)]
+    cell_map = [0 for i in range(25)]
     operation_ptr = 0
     cell_ptr = 0
     input_ptr = 0
     comma_count = 0
+    input_ptr_array = []
 
     for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', str(code_to_interpret.get(1.0, END)))):
         if each_char == ',':
@@ -73,16 +74,18 @@ def interpret():
             output.insert(END, chr(cell_map[cell_ptr]))
 
         elif command == ',':
-            cell_map[cell_ptr] = ord(code.get(1.0, END)[input_ptr])
+            if input_ptr < comma_count:
+                input_ptr_array.append(input_ptr)
+                input_ptr += 1
+
+            for i in range(len(input_ptr_array)):
+                cell_map[cell_ptr] = ord(uinput.get(1.0, END)[i])
 
         elif command == '[' and cell_map[cell_ptr] == 0:
             operation_ptr = brace_map[operation_ptr]
 
         elif command == ']' and cell_map[cell_ptr] != 0:
             operation_ptr = brace_map[operation_ptr]
-
-        if input_ptr < comma_count - 1:
-            input_ptr += 1
 
         operation_ptr += 1
 
