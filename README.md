@@ -7,6 +7,9 @@ complete.py is basically main.py but readable with full variable names and such.
 gui.py is complete.py with an UI.  
 
 # Usage of gui.py
+```
+python gui.py
+```
 Example:  
 ![Alt text](https://i.imgur.com/DZc2B8V.png)  
 How input works:  
@@ -21,8 +24,3 @@ After that you just have to input your code in 1 line.
 ```
 python complete.py filename.bf
 ```
-# Usage of gui.py
-```
-python gui.py
-```
-After that an UI will show up.
