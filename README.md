@@ -2,9 +2,9 @@
 An interpreter for Brainfuck written in Python.  
 
 # Info
-main.py is the main interpreter, code is as reduced as possible(329 bytes) taking the complete.py code as a base. 
+main.py is the main interpreter, code is as reduced as possible(329 bytes) taking the complete.py code as a base.  
 complete.py is basically main.py but readable with full variable names and such.  
-gui.py is complete.py with an UI. 
+gui.py is complete.py with an UI.  
 
 # Usage of gui.py
 Example:  
