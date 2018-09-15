@@ -2,10 +2,9 @@
 An interpreter for Brainfuck written in Python.  
 
 # Info
-  
-main.py is the main interpreter, code is as reduced as possible(348 bytes) so it is kind of(very) unreadable.  
+main.py is the main interpreter, code is as reduced as possible(329 bytes) taking the complete.py code as a base. 
 complete.py is basically main.py but readable with full variable names and such.  
-gui.py is an UI for the interpreter.
+gui.py is complete.py with an UI. 
 
 # Usage of gui.py
 Example:  
@@ -22,3 +21,8 @@ After that you just have to input your code in 1 line.
 ```
 python complete.py filename.bf
 ```
+# Usage of gui.py
+```
+python gui.py
+```
+After that an UI will show up.
