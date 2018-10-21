@@ -1,18 +1,5 @@
 from tkinter import *
 
-#https://github.com/pocmo/Python-Brainfuck/blob/master/brainfuck.py#L51
-def build_brace_map(code): 
-    temp_bracestack, brace_map = [], {}
-
-    for position, command in enumerate(code):
-        if command == "[": temp_bracestack.append(position)
-        if command == "]":
-            start = temp_bracestack.pop()
-            brace_map[start] = position
-            brace_map[position] = start
-    del temp_bracestack
-    return brace_map
-
 root = Tk()
 root.title('Brainfuck Interpreter')
 root.iconbitmap(r'icon.ico')
@@ -39,7 +26,7 @@ def interpret():
         if operation == ',':
             comma_count += 1
 
-    brace_map, cell_map, operation_ptr, cell_ptr, input_ptr = build_brace_map(''.join(code_map)), [0]*30000, 0, 0, 0
+    cell_map, operation_ptr, cell_ptr, input_ptr, bracket_ptr = [0]*30000, 0, 0, 0, 0
 
     while operation_ptr < len(code_map):
         command = code_map[operation_ptr]
@@ -72,12 +59,12 @@ def interpret():
             for i in range(input_ptr):
                 cell_map[cell_ptr] = ord(uinput.get(1.0, END)[i])
 
-        elif command == '[' and cell_map[cell_ptr] == 0:
-            operation_ptr = brace_map[operation_ptr]
-
+        elif command == '[':
+            bracket_ptr = operation_ptr
+        
         elif command == ']' and cell_map[cell_ptr] != 0:
-            operation_ptr = brace_map[operation_ptr]
-
+            operation_ptr = bracket_ptr
+		
         operation_ptr += 1
 
 Button(text='Interpret',command=interpret, borderwidth=2).grid(row=4, column=1)

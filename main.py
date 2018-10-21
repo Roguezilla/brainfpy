@@ -1,1 +1,1 @@
-exec('''import sysd=e=0a,b,c,f,g=input(),[],{},[0]*999,sysfor p,m in enumerate(a):A'[':b+=[p]A']':c[p]=s=b.pop();c[s]=pwhile d<len(a):	m=a[d]A'>':e+=1A'<':e-=1A'+':f[e]+=1A'-':f[e]-=1A'.':g.stdout.write(chr(f[e]))A',':f[e]=ord(g.stdin.read(1))A'[' and f[e]==0:d=c[d]A']' and f[e]!=0:d=c[d]	d+=1'''.replace('A','\n	if m=='))
+exec('''import sysd=e=z=0a,f=input(),[0]*999while d<len(a):	m=a[d]A'>':e+=1A'<':e-=1A'+':f[e]+=1A'-':f[e]-=1A'.':sys.stdout.write(chr(f[e]))A',':f[e]=ord(sys.stdin.read(1))A'[':z=dA']' and f[e]!=0:d=z	d+=1'''.replace('A','\n	if m=='))
