@@ -24,24 +24,40 @@ def interpret(filename):
     finally:
         f.close()
 
-    brace_map = build_brace_map(''.join(code_map))
-
-    cell_map, operation_ptr, cell_ptr = [0 for i in range(30000)], 0, 0
+    brace_map, cell_map, operation_ptr, cell_ptr = build_brace_map(''.join(code_map)), [0]*30000, 0, 0
 
     while operation_ptr < len(code_map):
         command = code_map[operation_ptr]
 
-        if   command == '>':                             cell_ptr += 1
-        elif command == '<':                             cell_ptr -= 1
-        elif command == '+':                             cell_map[cell_ptr] = cell_map[cell_ptr] + 1
-        elif command == '-':                             cell_map[cell_ptr] = cell_map[cell_ptr] - 1
-        elif command == '.':                             sys.stdout.write(chr(cell_map[cell_ptr]))
-        elif command == ',':                             cell_map[cell_ptr] = ord(sys.stdin.read(1))
-        elif command == '[' and cell_map[cell_ptr] == 0: operation_ptr = brace_map[operation_ptr]
-        elif command == ']' and cell_map[cell_ptr] != 0: operation_ptr = brace_map[operation_ptr]
+        if   command == '>':
+            cell_ptr += 1
 
-        if   cell_map[cell_ptr] > 255:                   cell_map[cell_ptr] = 0
-        elif cell_map[cell_ptr] < 0:                     cell_map[cell_ptr] = 255
+        elif command == '<':
+            cell_ptr -= 1
+
+        elif command == '+':
+            cell_map[cell_ptr] += 1
+
+            if cell_map[cell_ptr] > 255:
+                cell_map[cell_ptr] = 0
+        
+        elif command == '-':
+            cell_map[cell_ptr] -= 1
+
+            if cell_map[cell_ptr] < 0:
+                cell_map[cell_ptr] = 255
+        
+        elif command == '.':
+            sys.stdout.write(chr(cell_map[cell_ptr]))
+        
+        elif command == ',':
+            cell_map[cell_ptr] = ord(sys.stdin.read(1))
+        
+        elif command == '[' and cell_map[cell_ptr] == 0:
+            operation_ptr = brace_map[operation_ptr]
+        
+        elif command == ']' and cell_map[cell_ptr] != 0:
+            operation_ptr = brace_map[operation_ptr]
 
         operation_ptr += 1
 

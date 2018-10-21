@@ -39,7 +39,7 @@ def interpret():
         if operation == ',':
             comma_count += 1
 
-    brace_map, cell_map, operation_ptr, cell_ptr, input_ptr, input_ptr_array = build_brace_map(''.join(code_map)), [0]*999, 0, 0, 0, []
+    brace_map, cell_map, operation_ptr, cell_ptr, input_ptr = build_brace_map(''.join(code_map)), [0]*30000, 0, 0, 0
 
     while operation_ptr < len(code_map):
         command = code_map[operation_ptr]
