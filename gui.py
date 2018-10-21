@@ -32,40 +32,32 @@ output = Text(root, height=5, borderwidth=2, relief='groove')
 output.grid(row=5, column=1)
 
 def interpret():
-    code_map = []
+    code_map, code, comma_count = [], ''.join(filter(lambda x: x in '.,[]<>+-', str(code_to_interpret.get(1.0, END)))), 0
 
-    for each_operation in ''.join(filter(lambda x: x in '.,[]<>+-', str(code_to_interpret.get(1.0, END)))):
-        code_map.append(each_operation)
-
-    brace_map = build_brace_map(''.join(code_map))
-    cell_map = [0 for i in range(25)]
-    operation_ptr = 0
-    cell_ptr = 0
-    input_ptr = 0
-    comma_count = 0
-    input_ptr_array = []
-
-    for each_char in ''.join(filter(lambda x: x in '.,[]<>+-', str(code_to_interpret.get(1.0, END)))):
-        if each_char == ',':
+    for operation in code:
+        code_map.append(operation)
+        if operation == ',':
             comma_count += 1
+
+    brace_map, cell_map, operation_ptr, cell_ptr, input_ptr, input_ptr_array = build_brace_map(''.join(code_map)), [0]*999, 0, 0, 0, []
 
     while operation_ptr < len(code_map):
         command = code_map[operation_ptr]
 
-        if   command == '>':
+        if command == '>':
             cell_ptr += 1
 
         elif command == '<':
             cell_ptr -= 1
 
         elif command == '+':
-            cell_map[cell_ptr] = cell_map[cell_ptr] + 1
+            cell_map[cell_ptr] += 1
 
             if cell_map[cell_ptr] > 255:
                 cell_map[cell_ptr] = 0
 
         elif command == '-':
-            cell_map[cell_ptr] = cell_map[cell_ptr] - 1
+            cell_map[cell_ptr] -= 1
 
             if cell_map[cell_ptr] < 0:
                 cell_map[cell_ptr] = 255
@@ -75,10 +67,9 @@ def interpret():
 
         elif command == ',':
             if input_ptr < comma_count:
-                input_ptr_array.append(input_ptr)
                 input_ptr += 1
 
-            for i in range(len(input_ptr_array)):
+            for i in range(input_ptr):
                 cell_map[cell_ptr] = ord(uinput.get(1.0, END)[i])
 
         elif command == '[' and cell_map[cell_ptr] == 0:
