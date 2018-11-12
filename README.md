@@ -13,7 +13,7 @@ python gui.py
 Example:  
 ![Alt text](https://i.imgur.com/DZc2B8V.png)  
 How input works:  
-![Alt text](https://i.imgur.com/6NPRsxl.png)  
+![Alt text](https://i.imgur.com/TvQgCYG.png)  
 # Usage of imgui.py
 ```
 python imgui.py
@@ -21,7 +21,7 @@ python imgui.py
 Example:  
 ![Alt text](https://i.imgur.com/sNfXC7B.png)  
 How input works:  
-![Alt text](https://i.imgur.com/TvQgCYG.png)  
+![Alt text](https://i.imgur.com/6NPRsxl.png)  
 # Usage of main.py
 ```
 python main.py
