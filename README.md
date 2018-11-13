@@ -19,9 +19,9 @@ How input works:
 python imgui.py
 ```
 Example:  
-![Alt text](https://i.imgur.com/sNfXC7B.png)  
+![Alt text](https://i.imgur.com/VUASffp.png)  
 How input works:  
-![Alt text](https://i.imgur.com/6NPRsxl.png)  
+![Alt text](https://i.imgur.com/I41KjM7.png)  
 # Usage of main.py
 ```
 python main.py
