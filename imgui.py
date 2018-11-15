@@ -1,7 +1,7 @@
 import bimpy
 
 ctx = bimpy.Context()
-ctx.init(467, 422, 'Interpreter')
+ctx.init(275, 110, 'Interpreter')
 
 icode = bimpy.String('++++++++++[>++++++++++>+++++++>+++<<<-]>>++.<+.+++++++..+++.>>++.<+++++++++++++++.<.+++.------.--------.>>+.')
 uinput = bimpy.String('')
@@ -61,8 +61,7 @@ while(not ctx.should_close()):
     ctx.new_frame()
 
     bimpy.begin('', flags=(bimpy.WindowFlags.AlwaysAutoResize | bimpy.WindowFlags.NoTitleBar))
-    bimpy.push_item_width(400)
-    bimpy.input_text('Code'+'\n'*25, icode, 2048)
+    bimpy.input_text('Code', icode, 2048)
     bimpy.input_text('Input', uinput, 2048)
     if bimpy.button('Interpret'):
         interpret()
