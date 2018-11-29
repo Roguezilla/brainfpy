@@ -1,15 +1,11 @@
 import sys
 
 def interpret(filename):
-    code_map = []
+    code_map, f = [], None
 
-    try:
-        f = open(filename, 'r')
-		e = ''.join(filter(lambda x: x in '.,[]<>+-', f.read()))
-		print(e)
+    with open(filename, 'r') as f:
         for each_operation in ''.join(filter(lambda x: x in '.,[]<>+-', f.read())):
             code_map.append(each_operation)
-    finally:
         f.close()
 	
     cell_map, operation_ptr, cell_ptr, bracket_ptr = [0]*30000, 0, 0, 0
