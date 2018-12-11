@@ -12,5 +12,5 @@ python main.py
 Input your code in 1 line.
 # Usage of complete.py
 ```
-python complete.py filename.bf
+python complete.py fibb.bf
 ```
