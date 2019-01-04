@@ -9,6 +9,10 @@ main.py is a _very_ stripped down complete.py
 ```
 python main.py
 ```
+Hello World!
+```
+++++++++++[>++++++++++>+++++++>+++<<<-]>>++.<+.+++++++..+++.>>++.<+++++++++++++++.<.+++.------.--------.>>+.
+```
 Input your code in 1 line.
 # Usage of complete.py
 ```
