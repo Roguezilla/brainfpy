@@ -1,5 +1,3 @@
-exec('''d=e=z=0
-a,f=input(),[0]*999
-while d<len(a):
-	m=a[d]A>':e+=1A<':e-=1A+':f[e]+=1A-':f[e]-=1A.':print(chr(f[e]))A,':f[e]=ord(input())A[':z=dA]'and f[e]!=0:d=z
-	d+=1'''.replace("A","\n	if m=='"))
+z=a=x=0
+c,m=input(),[0]*999
+while(z<len(c)):exec("a+=1|a-=1|m[a]+=1|m[a]-=1|print(chr(m[a]))|m[a]=ord(input())|x=z|if m[a]:z=x".split("|")["><+-.,[]".find(c[z])]);z+=1
